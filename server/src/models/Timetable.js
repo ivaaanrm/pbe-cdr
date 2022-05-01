@@ -6,18 +6,10 @@ const timetableSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  day: {
-    type: Number
-  },
-  hour: {
-    type: String
-  },
-  subject: {
-    type: String
-  },
-  room: {
-    type: String
-  }
+  day: Number,
+  hour: String,
+  subject: String,
+  room: String
 },
 {
   versionKey: false,

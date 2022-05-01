@@ -6,15 +6,9 @@ const markSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  mark: {
-    type: Number
-  },
-  name: {
-    type: String
-  },
-  subject: {
-    type: String
-  } 
+  mark: Number,
+  name: String,
+  subject: String
 },
 {
   versionKey: false,

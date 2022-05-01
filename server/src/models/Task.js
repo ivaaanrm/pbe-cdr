@@ -6,15 +6,9 @@ const taskSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  date: {
-    type: Date
-  },
-  subject: {
-    type: String
-  },
-  name: {
-    type: String
-  }
+  date: Date,
+  subject: String,
+  name: String
 },
 {
   versionKey: false,
