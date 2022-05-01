@@ -1,12 +1,16 @@
 # pbe-cdr
 
-### server
+## Client
 
-## Server setup
-``` npm install ```
+## Server
+Server made with NodeJs and MongoDB.
+We use Express.js a backend web application framework for Node.js, and mongoose to connect to MongoDB.
+
+### Server setup
+Install framework and libreries: ``` npm install ```
 
 Add .env file with Database url.
 
-Then ``` npm run dev ```
+Development server: ``` npm run dev ```
 
-For start production server ```npm run start```
+Production server: ```npm run start```
