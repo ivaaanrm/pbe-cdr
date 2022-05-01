@@ -4,6 +4,6 @@ const timetableCtrl = require('../controllers/timetable.controller')
 
 router.get('/:id/timetables', timetableCtrl.findTimetable )
 
-router.post('/:id/timetables', timetableCtrl.createTimetable)
+router.post('/timetables', timetableCtrl.createTimetable)
 
 module.exports = router

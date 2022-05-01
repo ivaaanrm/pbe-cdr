@@ -7,8 +7,6 @@ const findMarks = async (req, res) => {
     const restriction = `$${Object.keys(query.mark)[0]}`;
     const number = parseFloat(Object.values(query.mark)[0]);
     query.mark = { [restriction]: number };
-
-    console.log(query);
   }
   const marksInfo = await Mark.find(query).sort("subject");
   const marks = marksInfo.map((m) => {
@@ -22,4 +20,18 @@ const findMarks = async (req, res) => {
   res.json(marks);
 };
 
-module.exports = { findMarks };
+
+const createMark = async (req, res) => {
+  const newMark = new Mark({
+    userid: req.body.userid,
+    mark: req.body.mark,
+    name: req.body.name,
+    subject: req.body.subject
+  })
+  
+  const markSaved = await newMark.save();
+  console.log("[DB] new Mark saved")
+  res.json(markSaved);
+};
+
+module.exports = { findMarks, createMark };

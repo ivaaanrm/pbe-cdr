@@ -4,7 +4,6 @@ const timetableSchema = new mongoose.Schema({
   userid: {
     type: String,
     required: true,
-    unique: true
   },
   day: Number,
   hour: String,

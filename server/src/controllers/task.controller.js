@@ -25,4 +25,17 @@ const findTasks = async (req, res) => {
 };
 
 
-module.exports = { findTasks }
+const createTask = async (req, res) => {
+  // console.log(req.body)
+  const newTask = new Task({
+    userid: req.body.userid,
+    date: new Date(req.body.date),
+    subject: req.body.subject,
+    name: req.body.name
+  })
+  const taskSaved = await newTask.save();
+  console.log("[DB] new Task saved")
+  res.json(taskSaved);
+};
+
+module.exports = { findTasks, createTask };

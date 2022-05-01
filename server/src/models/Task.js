@@ -4,7 +4,6 @@ const taskSchema = new mongoose.Schema({
   userid: {
     type: String,
     required: true,
-    unique: true
   },
   date: Date,
   subject: String,

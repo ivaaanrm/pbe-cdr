@@ -4,7 +4,6 @@ const markSchema = new mongoose.Schema({
   userid: {
     type: String,
     required: true,
-    unique: true
   },
   mark: Number,
   name: String,
