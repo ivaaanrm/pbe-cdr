@@ -4,15 +4,15 @@ from gi.repository import Gtk, Gdk, GLib
 import requests
 from requests.exceptions import *
 from threading import Timer, Thread
-from rfid import Rfid
-from lcdDrivers.lcddriver import Lcd 
+from src.rfid import Rfid
+from src.lcdDrivers.lcddriver import Lcd 
 
 
 class MyApplication(Gtk.Window):
     def __init__(self):
         super().__init__(title="Course manager")                                 # Call to the constructor
 
-        self.DOMAIN = 'http://192.168.1.163:3000'                                # The domain of the server
+        self.DOMAIN = 'http://XXX.XXX.X.XXX:XXXX'                                # The domain of the server
         self.SESSION_TIME = 300                                                  # The seconds before session expires
 
         self.set_default_size(900, 600)                                          # Set the size of the window
@@ -180,7 +180,7 @@ class TreeView(Gtk.TreeView):
 
 if __name__ == "__main__":
     style_provider = Gtk.CssProvider()                                           # Create a provider where we will get the style
-    style_provider.load_from_path('style.css')                                   # Set the path to the css file
+    style_provider.load_from_path('src/style.css')                                   # Set the path to the css file
     Gtk.StyleContext.add_provider_for_screen(
         Gdk.Screen.get_default(), style_provider,
         Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
