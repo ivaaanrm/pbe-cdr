@@ -34,7 +34,7 @@ class MyApplication(Gtk.Window):
 
         self.label = Gtk.Label()                                                 # Create the welcome label
         self.label.set_name("first-label")                                       # Set an ID to the label
-        self.label.set_text("Please, login with your university card")           # Set the inital text to the label
+        self.label.set_text("Please, login with your university card")           # Set the initial text to the label
         self.label.set_size_request(400,75)                                      # Set the minimum size of the widget
         self.box.pack_start(self.label, True, False, 0)                          # Add the label to the box
     
@@ -84,19 +84,19 @@ class MyApplication(Gtk.Window):
 
         logout = Gtk.Button()                                                    # Create the logout button widget
         logout.set_name("logout")                                                # Set an ID to the button
-        logout.set_label("logout")                                               # Set te label of te button
+        logout.set_label("logout")                                               # Set the label of the button
         logout.connect("clicked", self.logout)                                   # Connect the button to the logout function
         self.box.attach(logout,5,0,1,1)                                          # Add button to the box
 
         entry = Gtk.SearchEntry()                                                # Create the search bar widget
-        entry.set_placeholder_text("Enter your query")                           # Set a placehholder to the entry
+        entry.set_placeholder_text("Enter your query")                           # Set a place holder to the entry
         entry.connect("activate", self.entry_get_data)                           # Connect the widget to the query function 
         self.box.attach(entry,0,1,6,1)                                           # Add widget to the box
 
 
         self.scrollable = Gtk.Label()
         self.scrollable.set_name("tips-label")                                   # Set an ID to the label
-        self.scrollable.set_text('you can try "marks"')                          # Set the inital text to the label
+        self.scrollable.set_text('you can try "marks"')                          # Set the initial text to the label
         self.box.attach(self.scrollable, 0, 2, 6, 25)                            # Add the label to the box
         
     # Search by query function
@@ -112,8 +112,8 @@ class MyApplication(Gtk.Window):
         try: 
             req = requests.get(self.DOMAIN+'/'+self.uid+'/'+query)               # Create a request for the query
             req.raise_for_status()                                               # Send the request
-            self.info = req.json()                                               # Save the data from thhe request
-            GLib.idle_add(self.info_window)                                      # Call the diplay info function
+            self.info = req.json()                                               # Save the data from the request
+            GLib.idle_add(self.info_window)                                      # Call the display info function
         except HTTPError as e:
             GLib.idle_add(self.dialog_box, e.response.reason, 
                           'query "'+ query +'" not valid')                       # Connection error exception query not valid
@@ -148,13 +148,13 @@ class MyApplication(Gtk.Window):
 
     # Error dialog function
     def dialog_box(self, reason, text):
-        self.dialog = Gtk.MessageDialog(parent = self)                           # Create te dialog widget
+        self.dialog = Gtk.MessageDialog(parent = self)                           # Create the dialog widget
         self.dialog.add_button("_Close", Gtk.ResponseType.CLOSE)                 # Connect the dialog window to the close button
         self.dialog.set_name("dialog-box")                                       # Set an ID to the dialog box
         self.dialog.set_border_width(20)                                         # Set some space for inner widgets
         self.dialog.set_decorated(False)                                         # Remove headerbar
         self.dialog.set_markup("<span><b>%s</b></span>" % reason.upper())        # Set the text to the dialog box
-        self.dialog.set_default_size(500, 100)                                   # Set the size of the dilog window
+        self.dialog.set_default_size(500, 100)                                   # Set the size of the dialog window
         self.dialog.format_secondary_text(text)                                  # Set the style of the body text
         self.dialog.run()                                                        # Show the dialog window
         self.dialog.hide()                                                       # Connect the close button of the dialog window
@@ -174,7 +174,7 @@ class TreeView(Gtk.TreeView):
             col = Gtk.TreeViewColumn(key, renderer, text=i)                      # Create a column
             col.set_expand(True)                                                 # Set the column to take available extra space
             col.set_alignment(0.5)                                               # Set the column alignment
-            self.append_column(col)                                              # Add thhe column
+            self.append_column(col)                                              # Add the column
 
 
 
@@ -188,4 +188,4 @@ if __name__ == "__main__":
     win = MyApplication()                                                        # Open the application calling it's function
     win.connect("destroy", Gtk.main_quit)                                        # Connect the window to the close button
     win.show_all()                                                               # Show all widgets created on the windows object
-    Gtk.main()                                                                   # Create a loop for the scipt to run
+    Gtk.main()                                                                   # Create a loop for the script to run
