@@ -1,6 +1,9 @@
 # pbe-cdr
 
-## Client
+## Clients
+### Desktop Client
+Desktop client made with Python.
+We use PyGObject library to create a multi-desktop application.
 
 ## Server
 Server made with NodeJs and MongoDB.
