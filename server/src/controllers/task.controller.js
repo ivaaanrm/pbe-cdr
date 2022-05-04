@@ -24,17 +24,16 @@ const findTasks = async (req, res) => {
   res.send(tasks);
 };
 
-
 const createTask = async (req, res) => {
   // console.log(req.body)
   const newTask = new Task({
     userid: req.body.userid,
     date: new Date(req.body.date),
     subject: req.body.subject,
-    name: req.body.name
-  })
+    name: req.body.name,
+  });
   const taskSaved = await newTask.save();
-  console.log("[DB] new Task saved")
+  console.log("[DB] new Task saved");
   res.json(taskSaved);
 };
 

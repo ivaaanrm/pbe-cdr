@@ -2,6 +2,7 @@ const Mark = require("../models/Mark");
 
 const findMarks = async (req, res) => {
   const query = req.query;
+  console.log(query)
   query.userid = req.params.id;
   if ("mark" in query) {
     const restriction = `$${Object.keys(query.mark)[0]}`;
@@ -20,17 +21,17 @@ const findMarks = async (req, res) => {
   res.json(marks);
 };
 
-
 const createMark = async (req, res) => {
+  console.log(query)
   const newMark = new Mark({
     userid: req.body.userid,
     mark: req.body.mark,
     name: req.body.name,
-    subject: req.body.subject
-  })
-  
+    subject: req.body.subject,
+  });
+
   const markSaved = await newMark.save();
-  console.log("[DB] new Mark saved")
+  console.log("[DB] new Mark saved");
   res.json(markSaved);
 };
 

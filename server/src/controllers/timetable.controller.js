@@ -12,13 +12,17 @@ function getKeyByValue(object, value) {
   return Object.keys(object).find((key) => object[key] === value);
 }
 
-const hourFormat = hour => (hour.split(":").map(part => part.padStart(2,0))).join(':')
+const hourFormat = (hour) =>
+  hour
+    .split(":")
+    .map((part) => part.padStart(2, 0))
+    .join(":");
 
 const findTimetable = async (req, res) => {
   const query = req.query;
   query.userid = req.params.id;
   const limit = "limit" in query ? parseInt(Object.values(query.limit)[0]) : 0;
-//   console.log(query.hour);
+  //   console.log(query.hour);
 
   if ("hour" in query && "day" in query) {
     const restriction = `$${Object.keys(query.hour)[0]}`;
@@ -26,13 +30,11 @@ const findTimetable = async (req, res) => {
     // console.log("------", query.hour);
     query.day = parseInt(getKeyByValue(days, query.day));
     var timetableInfo = await Timetable.find(query).limit(1);
-
   } else if ("day" in query) {
     query.day = parseInt(getKeyByValue(days, query.day));
     var timetableInfo = await Timetable.find(query)
       .sort({ day: 1, hour: 1 })
       .limit(limit);
-
   } else {
     const now = new Date();
     const day = now.getDay();
