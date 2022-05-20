@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <script type="text/javascript" src="src/js/loginPage.js"></script>
+</head>
+
+<body>
+    <div class="container-sm login-widget login">
+        <div class="logo">
+            <img class="image" src="src/images/iwell-logo.png" height="150px" , id="logo" />
+        </div>
+        <div class="text">
+            <p class="login-text">Log into your account</p>
+        </div>
+        
+        <form class="login-form" id="login-form">
+            <div class="form-group">
+                <input type="text" name="username" id="username-field" class="login-form-field form-control"
+                    placeholder="Username" />
+                <div class="space"></div>
+                <input type="password" name="password" id="password-field" class="login-form-field form-control"
+                    placeholder="Password" />
+            </div>
+            <div class="submit-button">
+                <button type="button" class="btn btn-color" onclick=httprequestlogin() data-dismiss="alert">Login</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
