@@ -2,6 +2,7 @@ var user = sessionStorage.getItem("user");
 var id = sessionStorage.getItem("id");
 const TIMEOUT = 300000;
 var timeout = window.setTimeout(on_logout, TIMEOUT);
+
 function diplayUsername(){
     document.getElementById("username").innerHTML = user;
 }
@@ -10,7 +11,7 @@ const Http = new XMLHttpRequest();
 
 async function httprequestquery() {
     res = Http.open("GET", 'http://localhost:3000/'+ id + '/' + document.getElementById("query-entry").value);
-    console.log('http://localhost:3000/'+ id + '/' + document.getElementById("query-entry").value);
+    console.log(document.getElementById("query-entry").value);
     Http.responseType = 'json';
     Http.send();
 
@@ -26,24 +27,19 @@ async function httprequestquery() {
         timeout = window.setTimeout(on_logout,TIMEOUT);
     }
 }
+
 async function on_logout(){
     window.location.href = "../../index.html";
     sessionStorage.removeItem("user");
 }
 
 function createTable(response) {
-    console.log(response)
     var div = document.getElementById("welcome");
     var prevTable = document.getElementById("query-table");
-
     var table = document.createElement("table");
     var tableBody = document.createElement("tbody");
-
     var keys = Object.keys(response[0]);
-
     var row = document.createElement("tr");
-    
-
     for(var i=0; i < keys.length; i++){
         var texto = document.createTextNode(keys[i]);
         var celda = document.createElement("th");
