@@ -11,11 +11,10 @@ async function httprequestlogin() {
     Http.send();
 
     Http.onreadystatechange = (e) => {
-        if(Http.readyState == XMLHttpRequest.DONE && Http.status != 200){
-            alert("Incorrect username or password.")
-        }
-        else if(Http.readyState == XMLHttpRequest.DONE && Http.status == 200){
+        if(Http.readyState == XMLHttpRequest.DONE && Http.status == 200){
             window.location.href = "src/pages/queryPage.html";
+        }else{
+            alert("Incorrect username or password.")
         }
 
     }
