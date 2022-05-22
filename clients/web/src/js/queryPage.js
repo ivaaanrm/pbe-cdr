@@ -11,7 +11,6 @@ const Http = new XMLHttpRequest();
 
 async function httprequestquery() {
     res = Http.open("GET", 'http://localhost:3000/'+ id + '/' + document.getElementById("query-entry").value);
-    console.log(document.getElementById("query-entry").value);
     Http.responseType = 'json';
     Http.send();
 
